@@ -13,6 +13,7 @@ slateContent={SlateRTE.deserializeHTMLString(value)}
 - `charCount` (Real; optional): The number of charaters in the editor (excl HTML)
 - `formats` (Array; optional): A list of formats that are recognized.
 Should be [list of options]
+- `maxLength` (Real; optional): Maximu number of characters allowed.
 - `modules` (Dict; optional): The toolbar options modules.
 Should be {'toolbar':[list of options]}
 - `placeholder` (String; optional): Placeholder text to show when editor is empty.
@@ -24,7 +25,7 @@ Should be {'toolbar':[list of options]}
 - `value` (String; optional): The value displayed in the input.
 """
 function 'dre'_quill(; kwargs...)
-        available_props = Symbol[:id, :charCount, :formats, :modules, :placeholder, :preserveWhitespace, :readOnly, :style, :tabIndex, :theme, :value]
+        available_props = Symbol[:id, :charCount, :formats, :maxLength, :modules, :placeholder, :preserveWhitespace, :readOnly, :style, :tabIndex, :theme, :value]
         wild_props = Symbol[]
         return Component("'dre'_quill", "Quill", "dash_quill", available_props, wild_props; kwargs...)
 end

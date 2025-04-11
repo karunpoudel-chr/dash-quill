@@ -10,9 +10,10 @@ A Quill-Based Rich Text Editor Component for Dash
 }
 
 \usage{
-'dre'Quill(id=NULL, charCount=NULL, formats=NULL, modules=NULL,
-placeholder=NULL, preserveWhitespace=NULL, readOnly=NULL,
-style=NULL, tabIndex=NULL, theme=NULL, value=NULL)
+'dre'Quill(id=NULL, charCount=NULL, formats=NULL, maxLength=NULL,
+modules=NULL, placeholder=NULL, preserveWhitespace=NULL,
+readOnly=NULL, style=NULL, tabIndex=NULL, theme=NULL,
+value=NULL)
 }
 
 \arguments{
@@ -23,6 +24,8 @@ slateContent={SlateRTE.deserializeHTMLString(value)}}
 
 \item{formats}{Unnamed list. A list of formats that are recognized.
 Should be [list of options]}
+
+\item{maxLength}{Numeric. Maximu number of characters allowed.}
 
 \item{modules}{Named list. The toolbar options modules.
 Should be {'toolbar':[list of options]}}

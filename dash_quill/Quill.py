@@ -27,6 +27,9 @@ Keyword arguments:
     A list of formats that are recognized. Should be [list of
     options].
 
+- maxLength (number; optional):
+    Maximu number of characters allowed.
+
 - modules (dict; optional):
     The toolbar options modules. Should be {'toolbar':[list of
     options]}.
@@ -62,6 +65,7 @@ Keyword arguments:
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         value: typing.Optional[str] = None,
+        maxLength: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
         charCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
         modules: typing.Optional[dict] = None,
         formats: typing.Optional[typing.Sequence] = None,
@@ -73,9 +77,9 @@ Keyword arguments:
         tabIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'charCount', 'formats', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
+        self._prop_names = ['id', 'charCount', 'formats', 'maxLength', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'charCount', 'formats', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
+        self.available_properties = ['id', 'charCount', 'formats', 'maxLength', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
