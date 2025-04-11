@@ -4,7 +4,6 @@ import { defaultProps, propTypes } from '../components/Quill.react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-
 /**
  * A Quill-Based Rich Text Editor Component for Dash
  */
@@ -30,13 +29,13 @@ export default class Quill extends Component {
             //}
     }
 
-    // checkCharacterCount = (event) => {
-    //     //console.log('TRIGGERED checkCharacterCount');
+    checkCharacterCount = (event) => {
+        //console.log('TRIGGERED checkCharacterCount');
 
-    //     const unprivilegedEditor = this.reactQuillRef.current.unprivilegedEditor;
-    //     if (unprivilegedEditor.getLength() > this.props.maxLength && event.key !== 'Backspace')
-    //         event.preventDefault();
-    // };
+        const unprivilegedEditor = this.reactQuillRef.current.unprivilegedEditor;
+        if (unprivilegedEditor.getLength() > this.props.maxLength && !(['Backspace', 'Delete', 'Home', 'End', 'PageUp', 'PageDown'].includes(event.key) || event.key.startsWith('Arrow')))
+            event.preventDefault();
+    };
 
     handleThemeChange(newTheme) {
         if (newTheme === "core") newTheme = null;
@@ -76,7 +75,7 @@ export default class Quill extends Component {
                 tabIndex = { this.props.tabIndex }
 
                 onChange = { this.handleChange }
-                // onKeyDown = { this.checkCharacterCount }
+                onKeyDown = { this.props.maxLength ? this.checkCharacterCount : null }
             /> </div >
         )
     }

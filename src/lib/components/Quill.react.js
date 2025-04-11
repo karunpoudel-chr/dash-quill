@@ -51,9 +51,9 @@ Quill.propTypes = {
     value: PropTypes.string,
  
     /**
-     * The value displayed in the input.
+     * Maximu number of characters allowed.
      */
-    // maxLength: PropTypes.number,
+    maxLength: PropTypes.number,
 
     /**
      * The number of charaters in the editor (excl HTML)
