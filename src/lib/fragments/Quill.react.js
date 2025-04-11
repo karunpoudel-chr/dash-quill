@@ -5,17 +5,13 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 /**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+ * A Quill-Based Rich Text Editor Component for Dash
  */
 export default class Quill extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { editorHtml: this.props.value, theme: 'snow' }
+        this.state = { editorHtml: this.props.value }
         this.handleChange = this.handleChange.bind(this)
         this.reactQuillRef = React.createRef();
         this.quillRef = null; // Quill instance
@@ -23,10 +19,10 @@ export default class Quill extends Component {
     }
 
     handleChange(html, delta, source, editor) {
-        console.log('TRIGGERED handleChange');
+        //console.log('TRIGGERED handleChange');
         //if (editor.getLength() < this.props.maxLength) {
-        console.log('LENGTH IS GOOD');
-        console.log(this.props.value);
+        //console.log('LENGTH IS GOOD');
+        //console.log(this.props.value);
         //this.setState({ editorHtml: html });
         this.props.setProps({ value: html });
         this.props.setProps({ charCount: editor.getLength() })
@@ -34,10 +30,10 @@ export default class Quill extends Component {
     }
 
     checkCharacterCount = (event) => {
-        console.log('TRIGGERED checkCharacterCount');
+        //console.log('TRIGGERED checkCharacterCount');
 
         const unprivilegedEditor = this.reactQuillRef.current.unprivilegedEditor;
-        if (unprivilegedEditor.getLength() > this.props.maxLength && event.key !== 'Backspace')
+        if (unprivilegedEditor.getLength() > this.props.maxLength && !(['Backspace', 'Delete', 'Home', 'End', 'PageUp', 'PageDown'].includes(event.key) || event.key.startsWith('Arrow')))
             event.preventDefault();
     };
 
@@ -45,36 +41,41 @@ export default class Quill extends Component {
         if (newTheme === "core") newTheme = null;
         this.setState({ theme: newTheme })
     }
+
     componentDidMount() {
-        console.log('componentDidMount')
+        // console.log('componentDidMount')
         this.attachQuillRefs()
     }
 
     componentDidUpdate() {
-        console.log('componentDidUpdate')
+        // console.log('componentDidUpdate')
         this.attachQuillRefs()
     }
 
     attachQuillRefs = () => {
-
         if (typeof this.reactQuillRef.getEditor !== 'function') return;
-        console.log('Triggered GETEDITOR')
+        // console.log('Triggered GETEDITOR')
         this.quillRef = this.reactQuillRef.getEditor();
     }
+
     render() {
         return ( < div >
-            <
-            ReactQuill ref = { this.reactQuillRef }
-            id = { this.props.id }
-            theme = { this.state.theme }
-            onKeyDown = { this.checkCharacterCount }
-            onChange = { this.handleChange }
-            value = { this.props.value || '' }
-            //modules={this.props.hasToolbar ? Quill.modules : Quill.modulesNoToolbar}
-            modules = { this.props.modules }
-            formats = { Quill.formats }
-            bounds = { '.app' }
-            placeholder = { this.props.placeholder }
+            <ReactQuill
+                ref = { this.reactQuillRef }
+                id = { this.props.id }
+                theme = { this.props.theme }
+                value = { this.props.value }
+                modules = { this.props.modules }
+                formats = { this.props.formats }
+                bounds = { '.app' }
+                placeholder = { this.props.placeholder }
+                readOnly = { this.props.readOnly }
+                preserveWhitespace = { this.props.preserveWhitespace }
+                style = { this.props.style }
+                tabIndex = { this.props.tabIndex }
+
+                onChange = { this.handleChange }
+                onKeyDown = { this.props.maxLength ? this.checkCharacterCount : null }
             /> </div >
         )
     }
@@ -108,18 +109,6 @@ Quill.modulesNoToolbar = {
         matchVisual: false,
     }
 }
-
-/* 
- * Quill editor formats
- * See https://quilljs.com/docs/formats/
- */
-Quill.formats = [
-    'header', 'font', 'size',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image'
-]
-
 
 Quill.defaultProps = defaultProps;
 Quill.propTypes = propTypes;
