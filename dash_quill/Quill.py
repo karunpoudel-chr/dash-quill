@@ -23,6 +23,9 @@ Keyword arguments:
 - charCount (number; optional):
     The number of charaters in the editor (excl HTML).
 
+- className (string; optional):
+    Class Name for the div container containing quill.
+
 - formats (list; optional):
     A list of formats that are recognized. Should be [list of
     options].
@@ -75,11 +78,12 @@ Keyword arguments:
         theme: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         tabIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        className: typing.Optional[str] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'charCount', 'formats', 'maxLength', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
+        self._prop_names = ['id', 'charCount', 'className', 'formats', 'maxLength', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'charCount', 'formats', 'maxLength', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
+        self.available_properties = ['id', 'charCount', 'className', 'formats', 'maxLength', 'modules', 'placeholder', 'preserveWhitespace', 'readOnly', 'style', 'tabIndex', 'theme', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -63,6 +63,7 @@ export default class Quill extends Component {
             <ReactQuill
                 ref = { this.reactQuillRef }
                 id = { this.props.id }
+                className = { this.props.className }
                 theme = { this.props.theme }
                 value = { this.props.value }
                 modules = { this.props.modules }

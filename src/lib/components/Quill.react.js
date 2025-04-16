@@ -103,6 +103,11 @@ Quill.propTypes = {
     tabIndex: PropTypes.number,
 
     /**
+     * Class Name for the div container containing quill
+     */
+    className: PropTypes.string,
+
+    /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */

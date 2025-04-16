@@ -10,10 +10,10 @@ A Quill-Based Rich Text Editor Component for Dash
 }
 
 \usage{
-'dre'Quill(id=NULL, charCount=NULL, formats=NULL, maxLength=NULL,
-modules=NULL, placeholder=NULL, preserveWhitespace=NULL,
-readOnly=NULL, style=NULL, tabIndex=NULL, theme=NULL,
-value=NULL)
+'dre'Quill(id=NULL, charCount=NULL, className=NULL, formats=NULL,
+maxLength=NULL, modules=NULL, placeholder=NULL,
+preserveWhitespace=NULL, readOnly=NULL, style=NULL,
+tabIndex=NULL, theme=NULL, value=NULL)
 }
 
 \arguments{
@@ -21,6 +21,8 @@ value=NULL)
 slateContent={SlateRTE.deserializeHTMLString(value)}}
 
 \item{charCount}{Numeric. The number of charaters in the editor (excl HTML)}
+
+\item{className}{Character. Class Name for the div container containing quill}
 
 \item{formats}{Unnamed list. A list of formats that are recognized.
 Should be [list of options]}
