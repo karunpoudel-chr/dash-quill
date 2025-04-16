@@ -31,7 +31,7 @@ Keyword arguments:
     options].
 
 - maxLength (number; optional):
-    Maximu number of characters allowed.
+    Maximum number of characters allowed.
 
 - modules (dict; optional):
     The toolbar options modules. Should be {'toolbar':[list of

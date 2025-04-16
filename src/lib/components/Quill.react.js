@@ -51,7 +51,7 @@ Quill.propTypes = {
     value: PropTypes.string,
  
     /**
-     * Maximu number of characters allowed.
+     * Maximum number of characters allowed.
      */
     maxLength: PropTypes.number,
 

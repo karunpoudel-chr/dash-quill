@@ -92,11 +92,18 @@ run_server(app)
 | Property | Type | Description | Default |
 |----------|------|-------------|---------|
 | id | string | The ID used to identify this component | required |
-| value | string | The editor content as HTML string | "" |
-| placeholder | string | Placeholder text when editor is empty | "Compose an epic..." |
+| value | string | The editor content as HTML string | null |
+| maxLength | number | Maximum number of characters allowed (excluding html). | null (no-limit) |
+| charCount | number | Length of the editor contents (excluding html). This is readonly property. | |
+| placeholder | string | Placeholder text when editor is empty | null |
 | readonly | boolean | Whether to make the editor read-only | false |
-| theme | string | Editor theme ("snow" or "bubble") | "snow" |
-| modules | dict | Quill modules configuration | default toolbar |
+| theme | string | Editor theme ("snow" or "bubble"). Need to manually include bubble theme. | "snow" |
+| modules | dict | Quill modules configuration | null (quill's default) |
+| formats | list | Quill formats configuration | null (includes everything) |
+| preserveWhitespace | boolean | Preserve continuous whitespace. If true, a pre tag is used for the editor area instead of the default div tag. | False |
+| style | dict | Custom CSS rules to apply on the editor's container | |
+| tabIndex | number | The order in which the editor becomes focused during keyboard navigation. | |
+| className | string | Additional class name for the div container containing quill | |
 
 ## Development
 

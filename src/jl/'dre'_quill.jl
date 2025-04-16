@@ -14,7 +14,7 @@ slateContent={SlateRTE.deserializeHTMLString(value)}
 - `className` (String; optional): Class Name for the div container containing quill
 - `formats` (Array; optional): A list of formats that are recognized.
 Should be [list of options]
-- `maxLength` (Real; optional): Maximu number of characters allowed.
+- `maxLength` (Real; optional): Maximum number of characters allowed.
 - `modules` (Dict; optional): The toolbar options modules.
 Should be {'toolbar':[list of options]}
 - `placeholder` (String; optional): Placeholder text to show when editor is empty.

@@ -27,7 +27,7 @@ slateContent={SlateRTE.deserializeHTMLString(value)}}
 \item{formats}{Unnamed list. A list of formats that are recognized.
 Should be [list of options]}
 
-\item{maxLength}{Numeric. Maximu number of characters allowed.}
+\item{maxLength}{Numeric. Maximum number of characters allowed.}
 
 \item{modules}{Named list. The toolbar options modules.
 Should be {'toolbar':[list of options]}}
