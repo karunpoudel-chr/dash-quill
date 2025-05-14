@@ -8,9 +8,10 @@ with open('package.json') as f:
 long_description = (here / 'README.md').read_text()
 
 package_name = package["name"].replace(" ", "_").replace("-", "_")
+release_name = "chr-" + package_name.replace("_", "-")
 
 setup(
-    name=package_name,
+    name=release_name,
     version=package["version"],
     author=package['author'],
     packages=[package_name],
